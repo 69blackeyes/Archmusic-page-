@@ -1,5 +1,5 @@
 // APNI YOUTUBE API KEY YAHAN PASTE KAREIN
-const YOUTUBE_API_KEY = 'AIzaSyCaZcXpw_8UH6GvAl5xsEHy0iTV1BAOMAg';
+const YOUTUBE_API_KEY = 'Api_key';
 
 document.addEventListener('DOMContentLoaded', () => {
   let currentPlaylist = [];
