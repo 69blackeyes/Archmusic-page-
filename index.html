@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ListenFree Clone</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="top-bar">
+      <div class="logo">
+        <i class="fa-solid fa-compact-disc spin"></i>
+        <span>ListenFree</span>
+      </div>
+      <div class="top-actions">
+        <select id="quality-selector" title="Audio Quality Selection">
+          <option value="default">Auto Quality</option>
+          <option value="small">Low (240p)</option>
+          <option value="medium">Medium (360p)</option>
+          <option value="large">High (480p)</option>
+          <option value="hd720">HD (720p)</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Main Content Tabs -->
+    <main class="content-area">
+      <!-- Home Tab -->
+      <section id="tab-home" class="tab-content active">
+        <h2>Trending Now</h2>
+        <div id="trending-list" class="track-grid"></div>
+      </section>
+
+      <!-- Search Tab -->
+      <section id="tab-search" class="tab-content">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search songs, artists, or albums...">
+          <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div id="search-results" class="track-list"></div>
+      </section>
+
+      <!-- Library Tab -->
+      <section id="tab-library" class="tab-content">
+        <h2>Your Library</h2>
+        <div class="library-subtabs">
+          <button class="subtab-btn active" data-subtab="favorites">Favorites</button>
+          <button class="subtab-btn" data-subtab="history">History</button>
+        </div>
+        <div id="library-content" class="track-list"></div>
+      </section>
+
+      <!-- Profile Tab -->
+      <section id="tab-profile" class="tab-content">
+        <h2>Settings & Storage</h2>
+        <div class="settings-card">
+          <p><strong>App Version:</strong> 1.0.0</p>
+          <p><strong>Storage Engine:</strong> Browser LocalStorage</p>
+          <button id="clear-storage-btn" class="danger-btn">Clear App Data</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Hidden YouTube Player Container -->
+    <div id="youtube-player-container">
+      <div id="yt-player"></div>
+    </div>
+
+    <!-- Sticky Bottom Player -->
+    <footer id="mini-player" class="mini-player">
+      <div class="track-info-mini" id="expand-player-trigger">
+        <img id="mini-artwork" src="https://via.placeholder.com/60" alt="Cover Art">
+        <div class="mini-details">
+          <span id="mini-title" class="truncate">No track selected</span>
+          <span id="mini-artist" class="truncate">Select a song to play</span>
+        </div>
+      </div>
+
+      <div class="player-controls">
+        <div class="button-group">
+          <button id="prev-btn"><i class="fa-solid fa-backward-step"></i></button>
+          <button id="play-pause-btn"><i class="fa-solid fa-play"></i></button>
+          <button id="next-btn"><i class="fa-solid fa-forward-step"></i></button>
+          <button id="favorite-btn"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        <div class="time-slider-container">
+          <span id="current-time">0:00</span>
+          <input type="range" id="seek-bar" value="0" min="0" max="100" step="0.1">
+          <span id="total-duration">0:00</span>
+        </div>
+      </div>
+
+      <div class="volume-container">
+        <i id="volume-icon" class="fa-solid fa-volume-high"></i>
+        <input type="range" id="volume-bar" value="100" min="0" max="100">
+      </div>
+    </footer>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-tab="home">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </button>
+      <button class="nav-btn" data-tab="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>Search</span>
+      </button>
+      <button class="nav-btn" data-tab="library">
+        <i class="fa-solid fa-book-bookmark"></i>
+        <span>Library</span>
+      </button>
+      <button class="nav-btn" data-tab="profile">
+        <i class="fa-solid fa-user"></i>
+        <span>Profile</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- YouTube IFrame API Embed -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="storage.js"></script>
+  <script src="player.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
